@@ -1,5 +1,5 @@
-import { PageRenderer } from '@/components/page-renderer'
-import type { PageConfig } from '@/components/page-renderer'
+import { PageRenderer } from '@/components/page-renderer';
+import type { PageConfig } from '@/components/page-renderer';
 
 const homePageConfig: PageConfig = {
   sections: [
@@ -36,12 +36,12 @@ const homePageConfig: PageConfig = {
       },
     },
   ],
-}
+};
 
 export default function Home() {
   return (
     <main>
       <PageRenderer config={homePageConfig} />
     </main>
-  )
+  );
 }

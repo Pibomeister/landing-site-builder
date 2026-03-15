@@ -1,4 +1,4 @@
-import type { PageConfig } from '@/components/page-renderer'
+import type { PageConfig } from '@/components/page-renderer';
 
 export const waitlistPageConfig: PageConfig = {
   sections: [
@@ -36,4 +36,4 @@ export const waitlistPageConfig: PageConfig = {
       },
     },
   ],
-}
+};

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Format check
+echo "Running format check..."
+npx pnpm@9.0.0 format:check || {
+  echo "Format check failed. Run 'pnpm format' to fix."
+  exit 1
+}
+
+# Lint
+echo "Running lint..."
+npx pnpm@9.0.0 lint || {
+  echo "Lint failed. Fix the errors and try again."
+  exit 1
+}
+
+# Type check
+echo "Running type check..."
+npx pnpm@9.0.0 typecheck || {
+  echo "Type check failed. Fix the errors and try again."
+  exit 1
+}
+
+# Tests
+echo "Running tests..."
+npx pnpm@9.0.0 test || {
+  echo "Tests failed. Fix the tests and try again."
+  exit 1
+}
+
+echo "All checks passed!"

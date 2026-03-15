@@ -1,9 +1,9 @@
-import { type ReactNode } from 'react'
+import { type ReactNode } from 'react';
 
 export interface ContainerProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  children: ReactNode
-  className?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  children: ReactNode;
+  className?: string;
 }
 
 export function Container({ size = 'lg', children, className = '' }: ContainerProps) {
@@ -13,11 +13,7 @@ export function Container({ size = 'lg', children, className = '' }: ContainerPr
     lg: 'max-w-6xl',
     xl: 'max-w-7xl',
     full: 'max-w-full',
-  }
+  };
 
-  return (
-    <div className={`mx-auto px-4 ${sizeClasses[size]} ${className}`}>
-      {children}
-    </div>
-  )
+  return <div className={`mx-auto px-4 ${sizeClasses[size]} ${className}`}>{children}</div>;
 }

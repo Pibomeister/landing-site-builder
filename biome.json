@@ -1,0 +1,85 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "ignore": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/.husky/**",
+      "**/.turbo/**",
+      "**/pnpm-lock.yaml"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteProperties": "asNeeded"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 100
+    }
+  },
+  "files": {
+    "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.json", "**/*.mjs", "**/*.cjs"],
+    "ignore": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/.husky/**",
+      "**/.turbo/**",
+      "**/pnpm-lock.yaml"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUnusedVariables": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn",
+        "noConsoleLog": "warn"
+      },
+      "style": {
+        "useImportType": "error",
+        "noNonNullAssertion": "warn"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "warn"
+      }
+    },
+    "ignore": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/.husky/**"
+    ]
+  }
+}

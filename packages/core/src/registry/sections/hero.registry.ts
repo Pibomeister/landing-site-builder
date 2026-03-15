@@ -1,7 +1,7 @@
-import { registerSection } from '../section-registry'
-import { HeroSplit } from '../../components/landing/sections/hero/hero-split'
-import { heroSplitSchema } from '../schemas/hero.schema'
-import type { HeroSplitSection } from '../schemas/hero.schema'
+import { registerSection } from '../section-registry';
+import { HeroSplit } from '../../components/landing/sections/hero/hero-split';
+import { heroSplitSchema } from '../schemas/hero.schema';
+import type { HeroSplitSection } from '../schemas/hero.schema';
 
 /**
  * Register Hero Split section
@@ -18,10 +18,7 @@ registerSection<HeroSplitSection>({
     preview: '/previews/hero-split.png',
     tags: ['hero', 'split', 'image', 'cta'],
     renderMode: 'server',
-    dependencies: [
-      '@landing-builder/core/primitives',
-      '@landing-builder/core/ui/button',
-    ],
+    dependencies: ['@landing-builder/core/primitives', '@landing-builder/core/ui/button'],
     bundleImpact: 'light',
   },
   examples: {
@@ -76,4 +73,4 @@ registerSection<HeroSplitSection>({
       },
     },
   },
-})
+});

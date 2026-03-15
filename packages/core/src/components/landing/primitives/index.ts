@@ -1,2 +1,2 @@
-export * from './layouts'
-export * from './content'
+export * from './layouts';
+export * from './content';

@@ -1,23 +1,23 @@
-import { getSection } from '@landing-builder/core/registry'
+import { getSection } from '@landing-builder/core/registry';
 
 export interface SectionConfig {
-  type: string
-  variant: string
-  props: any
+  type: string;
+  variant: string;
+  props: Record<string, unknown>;
 }
 
 export interface PageConfig {
-  sections: SectionConfig[]
+  sections: SectionConfig[];
 }
 
 interface PageRendererProps {
-  config: PageConfig
+  config: PageConfig;
 }
 
 interface SectionErrorProps {
-  type: string
-  variant: string
-  error: string
+  type: string;
+  variant: string;
+  error: string;
 }
 
 function SectionError({ type, variant, error }: SectionErrorProps) {
@@ -28,17 +28,17 @@ function SectionError({ type, variant, error }: SectionErrorProps) {
       </h3>
       <p className="text-red-600 text-sm">{error}</p>
     </div>
-  )
+  );
 }
 
 export function PageRenderer({ config }: PageRendererProps) {
   return (
     <>
       {config.sections.map((sectionConfig, index) => {
-        const { type, variant, props } = sectionConfig
+        const { type, variant, props } = sectionConfig;
 
         // Look up the section in the registry
-        const sectionDef = getSection(type, variant)
+        const sectionDef = getSection(type, variant);
 
         if (!sectionDef) {
           return (
@@ -48,21 +48,23 @@ export function PageRenderer({ config }: PageRendererProps) {
               variant={variant}
               error={`Section "${type}-${variant}" not found in registry. Make sure it's registered.`}
             />
-          )
+          );
         }
 
         // Validate props against the schema
         try {
-          const validatedProps = sectionDef.schema.parse(props)
-          const Component = sectionDef.component
+          const validatedProps = sectionDef.schema.parse(props) as Record<string, unknown>;
+          const Component = sectionDef.component;
 
-          return <Component key={`${type}-${variant}-${index}`} {...validatedProps} />
+          return <Component key={`${type}-${variant}-${index}`} {...validatedProps} />;
         } catch (error) {
           if (error && typeof error === 'object' && 'errors' in error) {
-            const zodError = error as { errors: Array<{ path: Array<string | number>; message: string }> }
+            const zodError = error as {
+              errors: Array<{ path: Array<string | number>; message: string }>;
+            };
             const errorMessages = zodError.errors
               .map((err) => `${err.path.join('.')}: ${err.message}`)
-              .join(', ')
+              .join(', ');
 
             return (
               <SectionError
@@ -71,7 +73,7 @@ export function PageRenderer({ config }: PageRendererProps) {
                 variant={variant}
                 error={`Invalid props: ${errorMessages}`}
               />
-            )
+            );
           }
 
           return (
@@ -81,9 +83,9 @@ export function PageRenderer({ config }: PageRendererProps) {
               variant={variant}
               error={`Unexpected error: ${error instanceof Error ? error.message : 'Unknown error'}`}
             />
-          )
+          );
         }
       })}
     </>
-  )
+  );
 }

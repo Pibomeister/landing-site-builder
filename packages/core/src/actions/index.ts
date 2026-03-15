@@ -1,1 +1,1 @@
-export * from './lead-capture'
+export * from './lead-capture';
