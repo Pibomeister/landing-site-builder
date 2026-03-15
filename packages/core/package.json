@@ -1,0 +1,40 @@
+{
+  "name": "@landing-builder/core",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./primitives": "./src/components/landing/primitives/index.ts",
+    "./chrome": "./src/components/landing/chrome/index.ts",
+    "./sections": "./src/components/landing/sections/index.ts",
+    "./registry": "./src/registry/index.ts",
+    "./actions": "./src/actions/index.ts",
+    "./schemas": "./src/registry/schemas/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "next": "^15.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "dependencies": {
+    "zod": "^3.23.0",
+    "framer-motion": "^11.0.0",
+    "embla-carousel-react": "^8.0.0",
+    "lottie-react": "^2.4.0",
+    "resend": "^4.0.0",
+    "@react-email/components": "^0.0.25"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^9.0.0"
+  }
+}
