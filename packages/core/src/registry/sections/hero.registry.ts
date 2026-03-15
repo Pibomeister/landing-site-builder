@@ -1,5 +1,5 @@
 import { registerSection } from '../section-registry'
-import { HeroSplit } from '@/components/landing/sections/hero/hero-split'
+import { HeroSplit } from '../../components/landing/sections/hero/hero-split'
 import { heroSplitSchema } from '../schemas/hero.schema'
 import type { HeroSplitSection } from '../schemas/hero.schema'
 

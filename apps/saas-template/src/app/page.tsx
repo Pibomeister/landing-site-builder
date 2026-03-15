@@ -1,12 +1,47 @@
+import { PageRenderer } from '@/components/page-renderer'
+import type { PageConfig } from '@/components/page-renderer'
+
+const homePageConfig: PageConfig = {
+  sections: [
+    {
+      type: 'hero',
+      variant: 'split',
+      props: {
+        type: 'hero',
+        variant: 'split',
+        heading: {
+          title: 'Build beautiful landing pages',
+          body: 'Create stunning, conversion-optimized landing pages with our JSON-driven page builder. No code required.',
+          align: 'left',
+        },
+        media: {
+          kind: 'image',
+          src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+          alt: 'Dashboard preview',
+        },
+        actions: {
+          primary: {
+            type: 'link',
+            label: 'Get Started',
+            href: '/examples/waitlist',
+            target: '_self',
+          },
+          secondary: {
+            type: 'link',
+            label: 'View Example',
+            href: '/examples/waitlist',
+            target: '_self',
+          },
+        },
+      },
+    },
+  ],
+}
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm">
-        <h1 className="text-4xl font-bold mb-4">SaaS Landing Template</h1>
-        <p className="text-lg text-gray-600">
-          Built with Next.js 15, TypeScript, and Tailwind CSS
-        </p>
-      </div>
+    <main>
+      <PageRenderer config={homePageConfig} />
     </main>
-  );
+  )
 }

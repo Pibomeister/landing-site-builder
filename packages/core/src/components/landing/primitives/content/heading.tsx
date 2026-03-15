@@ -1,4 +1,4 @@
-import type { SectionHeading } from '@/registry/schemas'
+import type { SectionHeading } from '../../../../registry/schemas'
 
 export interface HeadingProps extends SectionHeading {
   className?: string

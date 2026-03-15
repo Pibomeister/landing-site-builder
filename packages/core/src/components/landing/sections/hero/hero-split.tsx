@@ -1,4 +1,4 @@
-import type { HeroSplitSection } from '@/registry/schemas/hero.schema'
+import type { HeroSplitSection } from '../../../../registry/schemas/hero.schema'
 import { Container } from '../../primitives/layouts/container'
 import { Heading } from '../../primitives/content/heading'
 
