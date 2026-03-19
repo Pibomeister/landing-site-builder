@@ -15,5 +15,9 @@ export function Container({ size = 'lg', children, className = '' }: ContainerPr
     full: 'max-w-full',
   };
 
-  return <div className={`mx-auto px-4 ${sizeClasses[size]} ${className}`}>{children}</div>;
+  return (
+    <div className={`mx-auto px-6 sm:px-8 lg:px-12 ${sizeClasses[size]} ${className}`}>
+      {children}
+    </div>
+  );
 }

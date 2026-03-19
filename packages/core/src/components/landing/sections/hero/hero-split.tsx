@@ -8,11 +8,11 @@ export interface HeroSplitProps extends HeroSplitSection {
 
 export function HeroSplit({ heading, media, actions, container, className = '' }: HeroSplitProps) {
   return (
-    <section className={`py-12 md:py-24 ${className}`}>
+    <section className={`py-16 md:py-24 lg:py-32 ${className}`}>
       <Container size={container || 'lg'}>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left column - Content */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <Heading
               eyebrow={heading.eyebrow}
               title={heading.title}
@@ -21,12 +21,12 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
             />
 
             {/* Actions */}
-            <div className="flex gap-4 items-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               {actions.primary.type === 'link' && (
                 <a
                   href={actions.primary.href}
                   target={actions.primary.target || '_self'}
-                  className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-8 py-4 text-base font-semibold hover:bg-primary/90 transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   {actions.primary.label}
                 </a>
@@ -36,7 +36,7 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
                 <a
                   href={actions.secondary.href}
                   target={actions.secondary.target || '_self'}
-                  className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-sm font-medium hover:bg-muted transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-border bg-background px-8 py-4 text-base font-semibold hover:bg-muted transition-all duration-200"
                 >
                   {actions.secondary.label}
                 </a>
@@ -45,12 +45,12 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
           </div>
 
           {/* Right column - Media */}
-          <div className="relative">
+          <div className="relative lg:h-[600px]">
             {media.kind === 'image' && (
               <img
                 src={media.src}
                 alt={media.alt || ''}
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-full object-cover rounded-xl shadow-2xl"
               />
             )}
           </div>

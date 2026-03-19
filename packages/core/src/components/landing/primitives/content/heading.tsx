@@ -12,12 +12,12 @@ export function Heading({ eyebrow, title, body, align = 'left', className = '' }
   };
 
   return (
-    <div className={`${alignClasses[align]} ${className}`}>
+    <div className={`space-y-4 ${alignClasses[align]} ${className}`}>
       {eyebrow && (
-        <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">{eyebrow}</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wider">{eyebrow}</p>
       )}
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-      {body && <p className="mt-4 text-lg text-muted-foreground">{body}</p>}
+      <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">{title}</h2>
+      {body && <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl">{body}</p>}
     </div>
   );
 }
