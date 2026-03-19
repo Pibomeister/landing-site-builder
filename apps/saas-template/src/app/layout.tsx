@@ -1,10 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Calistoga, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const calistoga = Calistoga({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-calistoga',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 });
 
@@ -20,7 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${calistoga.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         {/* Skip Link for Keyboard Navigation */}
         <a
           href="#main"

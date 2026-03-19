@@ -10,6 +10,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        display: ['var(--font-calistoga)', 'serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
