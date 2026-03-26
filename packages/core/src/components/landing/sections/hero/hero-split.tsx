@@ -11,7 +11,7 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
   return (
     <section className={`py-16 md:py-24 lg:py-32 ${className}`}>
       <Container size={container || 'lg'}>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16 items-center">
           {/* Left column - Content */}
           <div className="space-y-8">
             <Heading
@@ -52,11 +52,12 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
           </div>
 
           {/* Right column - Media */}
-          <div className="relative lg:h-[600px]">
+          <div className="relative lg:h-[500px] xl:h-[600px]">
             {media.kind === 'image' && (
               <img
                 src={media.src}
                 alt={media.alt || ''}
+                loading="lazy"
                 className="w-full h-full object-cover rounded-xl"
               />
             )}

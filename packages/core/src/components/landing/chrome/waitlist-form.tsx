@@ -81,7 +81,7 @@ export function WaitlistForm({ onSubmit, className = '' }: WaitlistFormProps) {
         type="submit"
         disabled={isLoading}
         aria-busy={isLoading}
-        className="w-full h-12 md:h-10 inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-8 py-4 text-base font-semibold hover:bg-primary/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
+        className="w-full h-12 md:h-10 inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-8 py-4 text-base font-semibold hover:bg-primary/90 transition-[color,background-color,border-color,transform] duration-200 ease-out disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
       >
         {isLoading ? (
           <>
