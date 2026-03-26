@@ -20,18 +20,8 @@ export const waitlistPageConfig: PageConfig = {
           alt: 'Team collaborating on a project',
         },
         actions: {
-          primary: {
-            type: 'link',
-            label: 'Join Waitlist',
-            href: '#waitlist',
-            target: '_self',
-          },
-          secondary: {
-            type: 'link',
-            label: 'Learn More',
-            href: '#features',
-            target: '_self',
-          },
+          type: 'form',
+          formType: 'waitlist',
         },
       },
     },

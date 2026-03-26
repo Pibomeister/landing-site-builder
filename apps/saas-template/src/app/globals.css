@@ -96,6 +96,14 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .section-primary-subtle {
+    @apply bg-primary/5;
+  }
+
+  .section-accent-subtle {
+    @apply bg-accent/5;
+  }
 }
 
 /* Reduced Motion Support - WCAG 2.1 Level AA */

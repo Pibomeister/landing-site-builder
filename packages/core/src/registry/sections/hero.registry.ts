@@ -35,6 +35,7 @@ registerSection<HeroSplitSection>({
         alt: 'Dashboard preview',
       },
       actions: {
+        type: 'buttons',
         primary: {
           type: 'link',
           label: 'Get Started',
@@ -58,6 +59,7 @@ registerSection<HeroSplitSection>({
         alt: 'Dashboard preview',
       },
       actions: {
+        type: 'buttons',
         primary: {
           type: 'link',
           label: 'Get Started',
