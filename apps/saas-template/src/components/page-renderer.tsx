@@ -22,11 +22,11 @@ interface SectionErrorProps {
 
 function SectionError({ type, variant, error }: SectionErrorProps) {
   return (
-    <div className="border border-red-300 bg-red-50 p-6 rounded-lg my-4">
-      <h3 className="text-red-800 font-semibold mb-2">
+    <div className="border border-destructive/30 bg-destructive/10 p-6 rounded-lg my-4">
+      <h3 className="text-destructive font-semibold mb-2">
         Section Error: {type}-{variant}
       </h3>
-      <p className="text-red-600 text-sm">{error}</p>
+      <p className="text-destructive/80 text-sm">{error}</p>
     </div>
   );
 }

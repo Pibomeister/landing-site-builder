@@ -22,14 +22,14 @@ registerSection<SocialProofStatsType>({
     bundleImpact: 'light',
   },
   examples: {
-    waitlist: {
+    basic: {
       stats: [
         { value: '2,500+', label: 'On Waitlist' },
         { value: '45', label: 'Days to Launch' },
         { value: '100+', label: 'Beta Testers' },
       ],
     },
-    metrics: {
+    advanced: {
       stats: [
         { value: '10,000+', label: 'Active Users' },
         { value: '99.9%', label: 'Uptime' },

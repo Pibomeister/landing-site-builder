@@ -29,20 +29,22 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
             ) : (
               <div className="flex flex-col sm:flex-row gap-4">
                 {actions.primary.type === 'link' && (
+                  /* Primary CTA: styled to match Button variant="default" size="lg" */
                   <a
                     href={actions.primary.href}
                     target={actions.primary.target || '_self'}
-                    className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground px-8 py-4 text-base font-semibold hover:bg-primary/90 transition-[color,background-color,border-color,transform] duration-200 ease-out active:scale-[0.98]"
+                    className="group/button inline-flex h-12 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-transparent bg-primary bg-clip-padding px-8 text-base font-medium text-primary-foreground whitespace-nowrap transition-[color,background-color,border-color,transform] outline-none select-none hover:bg-primary/90 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98]"
                   >
                     {actions.primary.label}
                   </a>
                 )}
 
                 {actions.secondary && actions.secondary.type === 'link' && (
+                  /* Secondary CTA: styled to match Button variant="outline" size="lg" */
                   <a
                     href={actions.secondary.href}
                     target={actions.secondary.target || '_self'}
-                    className="inline-flex items-center justify-center rounded-lg border-2 border-border bg-background px-8 py-4 text-base font-semibold hover:bg-muted transition-all duration-200"
+                    className="group/button inline-flex h-12 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-border bg-background bg-clip-padding px-8 text-base font-medium text-foreground whitespace-nowrap transition-[color,background-color,border-color,transform] outline-none select-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98] dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
                   >
                     {actions.secondary.label}
                   </a>

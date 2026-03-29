@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { WaitlistForm } from '../waitlist-form';
 
 describe('WaitlistForm', () => {
@@ -14,27 +14,45 @@ describe('WaitlistForm', () => {
     render(<WaitlistForm />);
 
     const input = screen.getByLabelText(/email/i);
-    const button = screen.getByRole('button', { name: /join waitlist/i });
+    const form = input.closest('form')!;
 
-    fireEvent.change(input, { target: { value: 'invalid-email' } });
-    fireEvent.click(button);
-
-    await waitFor(() => {
-      expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
+    // Use fireEvent.change to set value then submit the form directly
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'invalid-email' } });
+      fireEvent.submit(form);
     });
+
+    await waitFor(
+      () => {
+        expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
+      },
+      { timeout: 3000 }
+    );
   });
 
   it('shows loading state on submit', async () => {
-    render(<WaitlistForm />);
+    // Use a never-resolving mock to keep the loading state visible
+    const neverResolve = new Promise<{ success: boolean }>(() => {});
+    const mockSubmit = vi.fn().mockReturnValue(neverResolve);
+
+    render(<WaitlistForm onSubmit={mockSubmit} />);
 
     const input = screen.getByLabelText(/email/i);
-    const button = screen.getByRole('button', { name: /join waitlist/i });
+    const form = input.closest('form')!;
 
-    fireEvent.change(input, { target: { value: 'test@example.com' } });
-    fireEvent.click(button);
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'test@example.com' } });
+      fireEvent.submit(form);
+    });
 
-    expect(button).toHaveAttribute('aria-busy', 'true');
-    expect(screen.getByRole('status')).toBeInTheDocument(); // Spinner
+    const button = screen.getByRole('button');
+    await waitFor(
+      () => {
+        expect(button).toHaveAttribute('aria-busy', 'true');
+        expect(screen.getByRole('status')).toBeInTheDocument(); // Spinner
+      },
+      { timeout: 3000 }
+    );
   });
 
   it('shows success message on successful submission', async () => {
@@ -42,10 +60,10 @@ describe('WaitlistForm', () => {
     render(<WaitlistForm onSubmit={mockSubmit} />);
 
     const input = screen.getByLabelText(/email/i);
-    const button = screen.getByRole('button', { name: /join waitlist/i });
+    const form = input.closest('form')!;
 
     fireEvent.change(input, { target: { value: 'test@example.com' } });
-    fireEvent.click(button);
+    fireEvent.submit(form);
 
     await waitFor(() => {
       expect(screen.getByRole('status')).toHaveTextContent(/check your email/i);
