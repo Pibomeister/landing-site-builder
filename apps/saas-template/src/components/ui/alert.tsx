@@ -11,6 +11,9 @@ const alertVariants = cva(
         default: 'bg-card text-card-foreground',
         destructive:
           'bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current',
+        success: 'bg-success/10 text-success [&>svg]:text-success border-success/20',
+        warning: 'bg-warning/10 text-warning [&>svg]:text-warning border-warning/20',
+        info: 'bg-info/10 text-info [&>svg]:text-info border-info/20',
       },
     },
     defaultVariants: {
@@ -34,14 +37,11 @@ function Alert({
   );
 }
 
-function AlertTitle({ className, ...props }: React.ComponentProps<'div'>) {
+function AlertTitle({ className, ...props }: React.ComponentProps<'p'>) {
   return (
-    <div
+    <p
       data-slot="alert-title"
-      className={cn(
-        'font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground',
-        className
-      )}
+      className={cn('col-start-2 line-clamp-1 font-medium tracking-tight', className)}
       {...props}
     />
   );

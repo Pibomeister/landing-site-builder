@@ -9,6 +9,7 @@ export function SocialProofStats({ stats }: SocialProofStats) {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
+              {stat.icon && <span className="text-2xl block mb-1">{stat.icon}</span>}
               {/* font-display at font-normal (weight 400) — Calistoga is loaded at 400 only */}
               <div className="text-3xl md:text-4xl font-display font-normal text-primary mb-2">
                 {stat.value}

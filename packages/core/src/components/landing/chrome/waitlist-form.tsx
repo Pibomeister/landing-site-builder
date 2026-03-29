@@ -57,7 +57,7 @@ export function WaitlistForm({ onSubmit, className = '' }: WaitlistFormProps) {
       aria-live="polite"
     >
       <div className="space-y-2">
-        <label htmlFor="email" className="block text-sm font-medium leading-none select-none">
+        <label htmlFor="email" className="text-sm font-medium text-foreground mb-1.5 block">
           Email address
         </label>
         {/* Input styled to match the base Input component */}

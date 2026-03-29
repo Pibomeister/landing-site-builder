@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { HeroSplitSection } from '../../../../registry/schemas/hero.schema';
 import { Container } from '../../primitives/layouts/container';
 import { Heading } from '../../primitives/content/heading';
@@ -56,10 +57,11 @@ export function HeroSplit({ heading, media, actions, container, className = '' }
           {/* Right column - Media */}
           <div className="relative lg:h-[500px] xl:h-[600px]">
             {media.kind === 'image' && (
-              <img
+              <Image
                 src={media.src}
                 alt={media.alt || ''}
-                loading="lazy"
+                width={800}
+                height={600}
                 className="w-full h-full object-cover rounded-xl"
               />
             )}

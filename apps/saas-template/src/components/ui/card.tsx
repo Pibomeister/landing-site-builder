@@ -33,24 +33,21 @@ function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
+function CardTitle({
+  className,
+  as: Tag = 'h3',
+  ...props
+}: React.ComponentProps<'h3'> & { as?: 'h2' | 'h3' | 'h4' }) {
   return (
-    <div
-      data-slot="card-title"
-      className={cn(
-        'text-base leading-snug font-medium group-data-[size=sm]/card:text-sm',
-        className
-      )}
-      {...props}
-    />
+    <Tag data-slot="card-title" className={cn('leading-6 font-semibold', className)} {...props} />
   );
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
+function CardDescription({ className, ...props }: React.ComponentProps<'p'>) {
   return (
-    <div
+    <p
       data-slot="card-description"
-      className={cn('text-sm text-muted-foreground', className)}
+      className={cn('text-muted-foreground text-sm', className)}
       {...props}
     />
   );

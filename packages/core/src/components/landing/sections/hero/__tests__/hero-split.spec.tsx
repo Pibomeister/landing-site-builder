@@ -52,7 +52,8 @@ describe('HeroSplit', () => {
     render(<HeroSplit {...mockData} />);
     const image = screen.getByAltText('Hero image');
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', '/hero-image.jpg');
+    // Next.js <Image> transforms src to /_next/image?url=... — check it contains the original path
+    expect(image.getAttribute('src')).toContain('hero-image.jpg');
   });
 
   it('renders the primary CTA', () => {
